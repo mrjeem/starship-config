@@ -1,0 +1,170 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$cmd_duration
+[](peach)\
+$os\
+$username\
+[](bg:yellow fg:peach)\
+$directory\
+[](fg:yellow bg:teal)\
+$git_branch\
+$git_status\
+[](fg:teal bg:blue)\
+$c\
+$rust\
+$golang\
+$nodejs\
+$php\
+$java\
+$kotlin\
+$haskell\
+$python\
+[](fg:blue bg:surface1)\
+$docker_context\
+$conda\
+[](fg:surface1 bg:surface1)\
+$time\
+[ ](fg:surface1)\
+$git_metrics
+$line_break $character
+"""
+
+# Sets user-defined palette
+palette = "catppuccin_frappe"
+
+[os]
+disabled = false
+style = "bg:peach fg:rosewater"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = "󰀵"
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+
+[username]
+show_always = true
+style_user = "bg:peach fg:rosewater"
+style_root = "bg:red fg:rosewater"
+format = '[ $user ]($style)'
+
+[directory]
+truncation_length = 6
+truncate_to_repo = true
+truncation_symbol = "…/"
+read_only = '🔒'
+style = "fg:overlay1 bg:yellow"
+format = "[ $path ]($style)"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Developer" = "󰲋 "
+
+[git_branch]
+symbol = ""
+style = "bg:teal"
+format = '[[ $symbol $branch ](fg:overlay1 bg:teal)]($style)'
+
+[git_status]
+style = "bg:teal"
+format = '[[($all_status$ahead_behind )](fg:overlay1 bg:teal)]($style)'
+
+[c]
+symbol = " "
+style = "bg:blue"
+format = '[[ $symbol( $version) ](fg:overlay1 bg:blue)]($style)'
+
+[rust]
+symbol = ""
+style = "bg:blue"
+format = '[[ $symbol( $version) ](fg:overlay1 bg:blue)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:blue"
+format = '[[ $symbol( $version) ](fg:overlay1 bg:blue)]($style)'
+
+[python]
+symbol = ""
+style = "bg:blue"
+format = '[[ $symbol( $version) ](fg:rosewater bg:blue)]($style)'
+
+[conda]
+style = "bg:surface1"
+format = '[[ $symbol( $environment) ](fg:#83a598 bg:surface1)]($style)'
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:surface1"
+format = '[[  $time ](fg:text bg:surface1)]($style)'
+
+[line_break]
+disabled = false
+
+[character]
+disabled = false
+success_symbol = '[❯](bold fg:green)'
+error_symbol = '[❯](bold fg:red)'
+vimcmd_symbol = '[❮](bold fg:green)'
+vimcmd_replace_one_symbol = '[❮](bold fg:sapphire)'
+vimcmd_replace_symbol = '[❮](bold fg:sapphire)'
+vimcmd_visual_symbol = '[❮](bold fg:yellow)'
+
+[git_metrics]
+added_style = 'bold blue'
+deleted_style = 'bold red'
+format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
+
+[cmd_duration]
+min_time = 1000
+format = """[$duration
+](bold yellow)"""
+
+# palette tables should be last in the config ⚓️
+[palettes.catppuccin_frappe]
+rosewater = "#f2d5cf"
+flamingo = "#eebebe"
+pink = "#f4b8e4"
+mauve = "#ca9ee6"
+red = "#e78284"
+maroon = "#ea999c"
+peach = "#ef9f76"
+yellow = "#e5c890"
+green = "#a6d189"
+teal = "#81c8be"
+sky = "#99d1db"
+sapphire = "#85c1dc"
+blue = "#8caaee"
+lavender = "#babbf1"
+text = "#c6d0f5"
+subtext1 = "#b5bfe2"
+subtext0 = "#a5adce"
+overlay2 = "#949cbb"
+overlay1 = "#838ba7"
+overlay0 = "#737994"
+surface2 = "#626880"
+surface1 = "#51576d"
+surface0 = "#414559"
+base = "#303446"
+mantle = "#292c3c"
+crust = "#232634"
